@@ -59,7 +59,7 @@ class RegisterScreen extends StatelessWidget {
                   color: Colors.blueAccent,
                   child: ElevatedButton(
                     onPressed: (){},
-                    child: const Text('Register'),),
+                    child: const Text('RegiSter'),),
                 ),
                 Text('Or',
                   textAlign: TextAlign.start,
