@@ -3,7 +3,7 @@ import 'package:tasks/widgets/inputField.dart';
 import 'package:tasks/widgets/mainButton.dart';
 import 'package:tasks/widgets/text.dart';
 
-import 'components/two_text.dart';
+import '../components/two_text.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
