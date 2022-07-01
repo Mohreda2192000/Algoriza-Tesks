@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/image.png'),
+              Image.asset('assets/images/image.png'),
               Container(
                 padding: const EdgeInsetsDirectional.all(20),
                 child: Column(
@@ -76,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                       width: double.infinity,
                       height: 55,
                       child: OutlinedButton.icon(onPressed: (){},
-                          icon: Image.asset('assets/google.png'),
+                          icon: Image.asset('assets/images/google.png'),
                           label: Text('Sign in with by google')),
                     ),
                     const SizedBox(

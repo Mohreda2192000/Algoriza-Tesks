@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.asset('assets/sign_up.png'),
+                Image.asset('assets/images/sign_up.png'),
               ],
             ),
             Container(
@@ -101,7 +101,7 @@ class RegisterScreen extends StatelessWidget {
                     height: 55,
                     child: OutlinedButton.icon(
                         onPressed: () {},
-                        icon: Image.asset('assets/google.png'),
+                        icon: Image.asset('assets/images/google.png'),
                         label: const Text('Sign up with by google')),
                   ),
                   const SizedBox(

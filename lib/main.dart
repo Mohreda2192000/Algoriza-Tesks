@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'account/login_screen.dart';
+import 'intro/onBoarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: const LoginScreen(),
+      home:  OnBoarding(),
     );
   }
 }
