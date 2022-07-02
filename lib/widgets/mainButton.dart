@@ -7,7 +7,7 @@ class MainButton extends StatelessWidget {
   final String text;
   final double width;
   final double radius;
-  final VoidCallback callback;
+  final Function callback;
 
   const MainButton({
     Key? key,
@@ -17,20 +17,19 @@ class MainButton extends StatelessWidget {
     this.width = double.infinity,
     this.radius = 0,
     required this.callback,
-    this.backColor=Colors.lightBlue,
+    this.backColor=Colors.teal,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
       width: width,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
+      height: 55,
       decoration: BoxDecoration(
-        color: backColor,
         borderRadius: BorderRadius.circular(radius),
+        color: backColor,
       ),
-      child: ElevatedButton(
+      child: MaterialButton(
         onPressed: () {callback;},
         child: Text(
           text,

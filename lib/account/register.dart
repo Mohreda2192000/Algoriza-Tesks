@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.asset('assets/images/sign_up.png'),
+                Image.asset('assets/sign_up.png'),
               ],
             ),
             Container(

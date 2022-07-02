@@ -1,89 +1,163 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tasks/components/two_text.dart';
 import 'package:tasks/widgets/mainButton.dart';
+import 'package:tasks/widgets/text.dart';
 
-class BoardingModel {
-  final String image;
-  final String title;
-  final String body;
+class OnBoardingModel {
+  String image;
+  String title;
+  String body;
 
-  BoardingModel({
+  OnBoardingModel({
     required this.image,
     required this.title,
     required this.body,
   });
 }
 
-class OnBoarding extends StatefulWidget {
+class OnBoardingScreen extends StatefulWidget {
   @override
-  State<OnBoarding> createState() => _OnBoardingState();
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
-  List<BoardingModel> boarding = [
-    BoardingModel(
-        image: 'assets/images/onBoarding_1.png',
-        title: ',,vmv',
-        body: 'dlfl'),
-    BoardingModel(
-        image: 'assets/images/onBoarding_2.png',
-        title: ',,vmv',
-        body: 'dlfl'),
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  PageController pageController = PageController();
+
+  List<OnBoardingModel> data = [
+    OnBoardingModel(
+        image: 'assets/onBoarding_1.png',
+        title: 'get food delivery to your doorstep asap',
+        body:
+            'we have young and professional delivery team that will bring your food as soon as possible to your doorstep'),
+    OnBoardingModel(
+        image: 'assets/onBoarding_2.png',
+        title: 'get food delivery to your doorstep asap',
+        body:
+            'we have young and professional delivery team that will bring your food as soon as possible to your doorstep'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: Text('skip'),
-          )
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.yellow[50],
+            ),
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('login');
+                },
+              child: Text(
+                'skip',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
-      body: Column(
-        children: [
-          Text('7krave'),
-          PageView.builder(
-              itemCount: boarding.length,
-              itemBuilder: (context, index) => buildBoardingItem(boarding[index])),
-          Text('000'),
-          MainButton(text: 'Get started', callback: () {}),
-          TwoText(
-              text1: 'Don\'t have account?',
-              text2: 'Sign Up',
-              textColor1: Colors.black,
-              textColor2: Colors.blueAccent,
-              callback: () {}),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            MainText(
+              text: '7Krave',
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+              color: Colors.teal,
+            ),
+            Expanded(
+              flex: 2,
+              child: PageView.builder(
+                physics: BouncingScrollPhysics(),
+                controller: pageController,
+                itemCount: data.length,
+                itemBuilder: (context, index) =>
+                    buildOnBoardingItem(data[index]),
+              ),
+            ),
+            SmoothPageIndicator(
+                controller: pageController,  // PageController
+                count:  data.length,
+                effect:  ExpandingDotsEffect(
+                  dotColor: Colors.grey,
+                  dotHeight: 10,
+                  expansionFactor: 4,
+                  spacing: 4,
+                  dotWidth: 10,
+                  activeDotColor: Colors.teal,
+                ),  // your preferred effect
+                onDotClicked: (index){
+
+                }
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            MainButton(
+              text: 'Get started',
+              callback: () {
+                pageController.nextPage(
+                    duration: Duration(
+                      milliseconds: 750,
+                    ), curve: Curves.fastLinearToSlowEaseIn);
+              },
+              textColor: Colors.white,
+              radius: 10,
+            ),
+            TwoText(
+                text1: 'Don\'n have an account?',
+                text2: 'Sign Up',
+                textColor1: Colors.black87,
+                textColor2: Colors.teal,
+                callback: () {Navigator.of(context).pushNamed('login');}),
+          ],
+        ),
       ),
     );
   }
 
-
-  Widget buildBoardingItem(BoardingModel boardingModel) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+  Widget buildOnBoardingItem(OnBoardingModel model) => Column(
         children: [
-          Image(
-            image: AssetImage(boardingModel.image),
-          ),
-          Text(
-            boardingModel.title,
-            style: TextStyle(
-              fontSize: (40),
-              fontWeight: FontWeight.bold,
+          Expanded(
+            child: Image(
+              image: AssetImage(model.image),
+              width: double.infinity,
             ),
+          ),
+          MainText(
+            text: model.title,
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            color: Colors.black87,
+            maxLine: 2,
           ),
           SizedBox(
-            height: 15,
+            height: 20,
           ),
-          Text(
-            boardingModel.body,
-            style: TextStyle(
-              fontSize: (25),
-              fontWeight: FontWeight.w500,
-            ),
+          MainText(
+            text: model.body,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+            maxLine: 3,
+          ),
+          SizedBox(
+            height: 20,
           ),
         ],
       );

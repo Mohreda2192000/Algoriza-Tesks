@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tasks/account/login_screen.dart';
 
+import 'account/register.dart';
 import 'intro/onBoarding.dart';
 
 void main() {
@@ -14,9 +16,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        primarySwatch: Colors.teal,
       ),
-      home:  OnBoarding(),
+      home: OnBoardingScreen(),
+      routes: {
+        'login': (context) {
+          return LoginScreen();
+        },
+        'signup': (context) {
+          return RegisterScreen();
+        },
+      },
     );
   }
 }
