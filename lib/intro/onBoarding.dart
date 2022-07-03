@@ -75,11 +75,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            MainText(
-              text: '7Krave',
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-              color: Colors.teal,
+            RichText(
+              text: TextSpan(
+                text: '7',
+                style: TextStyle(color: Colors.amberAccent),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'Krave', style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
             ),
             Expanded(
               flex: 2,
