@@ -25,11 +25,11 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    MainText(text: 'Welcome to Fashion Daily',fontWeight: FontWeight.normal,color: Colors.grey,),
+                    const MainText(text: 'Welcome to Fashion Daily',fontWeight: FontWeight.normal,color: Colors.grey,),
                     const SizedBox(
                       height: 20,
                     ),
-                    MainText(text: 'Sign in',fontWeight: FontWeight.bold,fontSize: 30,),
+                    const MainText(text: 'Sign in',fontWeight: FontWeight.bold,fontSize: 30,),
                     const SizedBox(
                       height: 10,
                     ),
@@ -77,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                       height: 55,
                       child: OutlinedButton.icon(onPressed: (){},
                           icon: Image.asset('assets/google.png'),
-                          label: Text('Sign in with by google')),
+                          label: const Text('Sign in with by google')),
                     ),
                     const SizedBox(
                       height: 10,
@@ -92,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    MainText(text: 'Use the app according to policy rules.Any kinds of violations will be subject to sanctions',fontWeight: FontWeight.normal,color: Colors.grey,),
+                    const MainText(text: 'Use the app according to policy rules.Any kinds of violations will be subject to sanctions',fontWeight: FontWeight.normal,color: Colors.grey,),
                   ],
                 ),
               )

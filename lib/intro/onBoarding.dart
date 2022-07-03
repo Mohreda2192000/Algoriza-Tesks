@@ -17,6 +17,8 @@ class OnBoardingModel {
 }
 
 class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({Key? key}) : super(key: key);
+
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
@@ -76,7 +78,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             RichText(
-              text: TextSpan(
+              text: const TextSpan(
                 text: '7',
                 style: TextStyle(color: Colors.amberAccent,fontWeight: FontWeight.bold,fontSize: 40,),
                 children: <TextSpan>[
@@ -102,7 +104,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             SmoothPageIndicator(
                 controller: pageController,  // PageController
                 count:  data.length,
-                effect:  ExpandingDotsEffect(
+                effect:  const ExpandingDotsEffect(
                   dotColor: Colors.grey,
                   dotHeight: 10,
                   expansionFactor: 4,
@@ -114,7 +116,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 }
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MainButton(
