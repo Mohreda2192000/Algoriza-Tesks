@@ -78,10 +78,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             RichText(
               text: TextSpan(
                 text: '7',
-                style: TextStyle(color: Colors.amberAccent),
+                style: TextStyle(color: Colors.amberAccent,fontWeight: FontWeight.bold,fontSize: 40,),
                 children: <TextSpan>[
                   TextSpan(
-                      text: 'Krave', style: TextStyle(fontWeight: FontWeight.bold)),
+                      text: 'Krave',
+                      style: TextStyle(fontWeight: FontWeight.bold,
+                      color: Colors.teal,
+                        fontSize: 40,
+                  )),
                 ],
               ),
             ),
